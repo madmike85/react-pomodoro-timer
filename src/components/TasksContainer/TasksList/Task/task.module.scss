@@ -1,0 +1,49 @@
+@import '../../../../scss/vars.scss';
+
+.task {
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.count {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid $grayColorC4;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 300;
+    padding: 3px 7px;
+    margin-right: 10px;
+    color: $blackColor;
+}
+
+.title {
+    color: $blackColor;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    flex-grow: 1;
+}
+
+.input {
+    border: none;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    padding: 4px 5px;
+    background-color: $grayColorF4;
+}
+
+.menu {
+    position: absolute;
+    right: 0;
+    top: 25%;
+}
+
+.completed {
+    text-decoration: line-through;
+}

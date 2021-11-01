@@ -1,0 +1,53 @@
+@import '../../scss/vars.scss';
+
+.header {
+    padding: 15px 80px;
+    box-shadow: 0px 10px 63px rgba(0, 0, 0, 0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo,
+.statistics {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logoIcon {
+    margin-right: 12px;
+}
+
+.logoText {
+    color: $redColor;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.statistics {
+    color: $redColor;
+
+    svg {
+        fill: $redColor;
+    }
+
+    &:hover {
+        color: $darkRedColor;
+
+        svg {
+            fill: $darkRedColor;
+        }
+    }
+}
+
+.statisticsIcon {
+    margin-right: 5px;
+}
+
+.statisticsText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 17px;
+}
+

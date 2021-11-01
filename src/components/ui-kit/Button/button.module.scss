@@ -1,0 +1,39 @@
+@import '../../../scss/vars.scss';
+
+.button {
+    padding: 15px 50px;
+    transition: all ease 0.3s;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+    cursor: pointer;
+}
+
+.green {
+    border: 2px solid $lightGreenColor;
+    background: $lightGreenColor;
+    color: $whiteColor;
+
+    &:hover {
+        background: $darkGreenColor;
+        border-color: $darkGreenColor;
+    }
+}
+
+.red {
+    border: 2px solid $redColor;
+    background: $whiteColor;
+    color: $redColor;
+
+    &:hover {
+        color: $whiteColor;
+        background-color: $redColor;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    border: 2px solid $grayColorC4;
+    background: transparent;
+    color: $grayColorC4;
+}

@@ -1,0 +1,25 @@
+@import '../../scss/vars.scss';
+
+.title {
+    color: $blackColor;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    margin: 0;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    padding-left: 19px;
+
+    li {
+        font-size: 16px;
+        line-height: 33px;
+        font-weight: 400;
+
+        &::marker {
+            color: $redColor;
+        }
+    }
+}

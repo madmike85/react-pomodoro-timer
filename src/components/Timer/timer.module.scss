@@ -1,0 +1,63 @@
+@import '../../scss/vars.scss';
+
+.container {
+    background-color: $grayColorF4;
+    width: 100%;
+    height: 507px;
+}
+
+.header {
+    padding: 19px 40px;
+    background-color: $grayColorC4;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        margin: 0;
+    }
+}
+
+.start {
+    background-color: $redColor;
+}
+
+.break {
+    background-color: $lightGreenColor;
+}
+
+.task,
+.tomatoCouter {
+    color: $whiteColor;
+    font-size: 16px;
+    line-height: 17px;
+}
+
+.task {
+    font-weight: 700;
+}
+
+.tomatoCouter {
+    font-weight: 400;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+}
+
+.taskLine {
+    font-size: 16px;
+    line-height: 17px;
+    color: $blackColor;
+}
+
+.taskNumber {
+    color: $grayColor99;
+}
+
+.actions {
+    margin-top: 32px;
+}

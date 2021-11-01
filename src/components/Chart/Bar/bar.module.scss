@@ -1,0 +1,24 @@
+@import '../../../scss/vars.scss';
+
+.bar {
+    cursor: pointer;
+    background: $lightPaleRedColor;
+    transition: all 0.2s;
+
+    &:hover {
+        background: $paleRedColor;
+    }
+}
+
+.empty {
+    cursor: pointer;
+    background: $grayColorC4;
+}
+
+.active {
+    background: $redColor;
+
+    &:hover {
+        background: $redColor;
+    }
+}

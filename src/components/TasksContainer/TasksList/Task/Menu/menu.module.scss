@@ -1,0 +1,73 @@
+@import '../../../../../scss/vars.scss';
+
+.menu {
+    position: relative;
+}
+
+.menuIcon {
+    cursor: pointer;
+}
+
+.contentContainer {
+    position: absolute;
+    top: 36px;
+    right: -64px;
+    z-index: 2;
+}
+
+.content {
+    position: relative;
+    padding: 0;
+    list-style: none;
+    border: 1px solid $grayColorC4;
+    background: $whiteColor;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 45%;
+        border: 9px solid transparent;
+        border-bottom-color: $grayColorC4;
+    }
+
+    &::after {
+        left: 46%;
+        border: 7px solid transparent;
+        border-bottom-color: $whiteColor;
+    }
+}
+
+.item {
+    display: flex;
+    padding: 9px 15px;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: $grayColorF4;
+    }
+}
+
+.icon {
+    margin-right: 8px;
+
+    svg {
+        fill: $lightGreenColor;
+    }
+}
+
+.title {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 17px;
+    color: $grayColor99;
+}
+
+.disabled {
+    svg {
+        fill: $grayColorC4
+    }
+}

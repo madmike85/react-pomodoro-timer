@@ -1,0 +1,232 @@
+@import '../../scss/vars.scss';
+
+.container {
+    padding: 0 80px;
+    padding-top: 88px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: $blackColor;
+}
+
+.select {
+    width: 370px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 296px 1fr;
+    grid-template-rows: 260px 179px;
+    grid-template-areas: 
+        "days chart"
+        "pomodoro chart";
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.dataRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dayActivity,
+.pomodoroContainer,
+.chart,
+.dataContainer {
+    background-color: $grayColorF4;
+}
+
+.dayActivity {
+    grid-area: days;
+    padding: 25px;
+}
+
+.dayTitle {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: $blackColor;
+    margin-bottom: 14px;
+}
+
+.dayText {
+    font-size: 16px;
+    line-height: 28px;
+    color: $blackColor;
+
+    span {
+        font-weight: 700;
+        color: $redColor;
+    }
+}
+
+.pomodoroContainer {
+    grid-area: pomodoro;
+}
+
+.pomodoroCounter {
+    height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        color: $grayColor99;
+        margin-left: 15px;
+    }
+}
+
+.pomodoroTitle {
+    background-color: $redColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 51px;
+
+    p {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+        color: $whiteColor;
+    }
+}
+
+.chart {
+    position: relative;
+    grid-area: chart;
+    display: flex;
+    flex-direction: column;
+}
+
+.barChart {
+    height: 100%;
+    padding: 0 32px 0 56px;
+}
+
+.bar {
+    margin-right: 32px;
+    z-index: 2;
+}
+
+.legend {
+    display: flex;
+    padding: 0 32px 0 56px;
+    background-color: $grayColorEC;
+    list-style: none;
+    width: 100%;
+    height: 51px;
+}
+
+.legendItem {
+    width: 77px;
+    padding: 11px 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: 28px;
+    color: $grayColor99;
+    margin-right: 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.activeItem {
+    color: $redColor;
+}
+
+.dataContainer {
+    height: 179px;
+    width: 100%;
+    margin-right: 32px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.focus {
+    background-color: $lightYellowColor;
+
+    .dataIcon svg path {
+        stroke: $darkYellowColor;
+    }
+}
+
+.pause {
+    background-color: $lightPurpleColor;
+
+    .dataIcon svg path {
+        stroke: $darkPurpleColor;
+    }
+}
+
+.stops {
+    background-color: $lightCyanColor;
+
+    .dataIcon svg path {
+        stroke: $darkCyanColor;
+    }
+}
+
+.dataTitle {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: $blackColor;
+    margin-bottom: 20px;
+}
+
+.dataValue {
+    font-size: 64px;
+    line-height: 76px;
+}
+
+.emptyPomodoro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.background {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    margin-top: 51px;
+
+    &:last-child {
+        margin-top: 68px;
+    }
+}
+
+.dash {
+    border-top: 1px solid $blackColor;
+    width: 843px;
+    margin-right: 32px;
+}
+
+.lineTime {
+    color: $blackColor;
+    font-size: 12px;
+    line-height: 33px;
+}

@@ -1,0 +1,30 @@
+@import '../../../scss/vars.scss';
+
+.container {
+    position: relative;
+}
+
+.clock {
+    color: $blackColor;
+    font-size: 150px;
+    line-height: 170px;
+    font-weight: 200;
+}
+
+.add {
+    position: absolute;
+    top: 36%;
+    right: -75px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 17px;
+    background-color: $grayColorC4;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: $darkGreenColor;
+    }
+}

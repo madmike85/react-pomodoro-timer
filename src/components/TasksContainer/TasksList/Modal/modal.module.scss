@@ -1,0 +1,50 @@
+@import '../../../../scss/vars.scss';
+
+.container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    padding: 25px 0;
+    background-color: $whiteColor;
+}
+
+.title {
+    font-size: 24px;
+    line-height: 17px;
+    color: $blackColor;
+    margin-bottom: 25px;
+}
+
+.cancel {
+    font-size: 16px;
+    line-height: 17px;
+    text-decoration: underline;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    cursor: pointer;
+    top: 12px;
+    right: 12px;
+    color: $grayColorC4;
+}

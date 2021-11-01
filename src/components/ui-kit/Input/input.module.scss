@@ -1,0 +1,17 @@
+@import '../../../scss/vars.scss';
+
+.input {
+    background-color: $grayColorF4;
+    border: none;
+    padding: 19px 15px;
+    color: $blackColor;
+    font-size: 16px;
+    line-height: 17px;
+    font-weight: 300;
+    width: 100%;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: $grayColor99;
+    }
+}
