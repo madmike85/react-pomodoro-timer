@@ -22,12 +22,12 @@ export function Timer() {
     const [isStart, setIsStart] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [isBreak, setIsBreak] = useState(false);
-    const [isCompleted, setIsCompleted] = useState(false);
     const [defaultState, setDefaultState] = useState(false);
     const [currentTaskId, setCurrentTaskId] = useState<string>(tasksToBeDone.length ? tasksToBeDone[0].id : '');
     const [currentTask, setCurrentTask] = useState<TaskInterface | undefined>(tasksToBeDone.find((item) => item.id === currentTaskId));
     const [time, setTime] = useState(sessionTime);
-    const [numberOfBreaks, setNumberOfBreaks] = useState(0)
+    const [numberOfBreaks, setNumberOfBreaks] = useState(0);
+    const [duration, setDuration] = useState(0);
     const dispatch = useDispatch();
 
 
@@ -79,7 +79,6 @@ export function Timer() {
 
     const onStart = (): void => {
         setIsStart(true);
-        setIsCompleted(false);
         setDefaultState(false);
     }
 
@@ -103,11 +102,15 @@ export function Timer() {
     }
 
     const onComplete = (): void => {
-        setIsCompleted(true);
         setIsStart(false);
         setIsPaused(false);
         updateTasksList();
         setIsBreak(true);
+        const item: TimeInterface = {
+            amount: duration,
+            date: createDateObject(),
+        }
+        dispatch(updateWorkTime(item));
         setTime(numberOfBreaks < 4 ? breakTime : longBreakTime);
         const count = numberOfBreaks + 1;
         setNumberOfBreaks(count > 4 ? 0 : count)
@@ -115,7 +118,6 @@ export function Timer() {
     }
 
     const onSkip = (): void => {
-        setIsCompleted(false);
         setIsStart(false);
         setIsBreak(false);
         setTime(sessionTime);
@@ -145,6 +147,10 @@ export function Timer() {
         setTime(time + 1);
     }
 
+    const onDurationChange = (value: number) => {
+        setDuration(sessionTime - (value / 60));
+    }
+
     return (
         <div className={styles.container}>
             <div className={headerClasses}>
@@ -160,9 +166,9 @@ export function Timer() {
                     time={time}
                     isStarted={isStart}
                     isPaused={isPaused}
-                    isCompleted={isCompleted}
                     onTimeOver={onTimeOver}
                     onAdd={onAddTime}
+                    onDurationChange={onDurationChange}
                 />
                 {tasksToBeDone.length > 0 && (
                     <div className={styles.taskLine}>

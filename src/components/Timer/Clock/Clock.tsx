@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { createDateObject } from '../../../helpers/common-helpers';
 import { TimeInterface } from '../../../interfaces/time.interface';
-import { updatePausedTime, updateWorkTime } from '../../../store/statistics/action';
+import { updatePausedTime } from '../../../store/statistics/action';
 import { PlusIcon } from '../../icons';
 import styles from './clock.module.scss';
 
@@ -11,18 +11,18 @@ interface IClockInterface {
     time: number;
     isPaused: boolean;
     isStarted: boolean;
-    isCompleted: boolean;
     onTimeOver?: () => void;
     onAdd?: () => void;
+    onDurationChange?: (duration: number) => void;
 }
 
 export function Clock({
     time,
     isPaused,
     isStarted,
-    isCompleted,
     onTimeOver = () => { },
     onAdd = () => { },
+    onDurationChange = () => { },
 }: IClockInterface) {
     const [duration, setDuration] = useState(time * 60);
     const [pauseDuration, setPauseDuration] = useState(0);
@@ -52,23 +52,13 @@ export function Clock({
     }, [isPaused, pauseDuration, dispatch]);
 
     useEffect(() => {
-        if (isCompleted) {
-            const item: TimeInterface = {
-                amount: duration / 60,
-                date: createDateObject(),
-            }
-            dispatch(updateWorkTime(item));
-        }
-        // eslint-disable-next-line    
-    }, [isCompleted])
-
-    useEffect(() => {
         let intervalTimeoutId: NodeJS.Timeout;
         let pausedIntervalTimeoutId: NodeJS.Timeout;
 
         const updateTimer = () => {
             if (duration > 0) {
                 setDuration(duration => duration - 0.01);
+                onDurationChange(duration);
             } else {
                 onTimeOver();
             }
@@ -95,7 +85,7 @@ export function Clock({
                 clearInterval(pausedIntervalTimeoutId);
             }
         }
-    }, [paused, started, duration, onTimeOver]);
+    }, [paused, started, duration, onTimeOver, onDurationChange]);
 
     const integerDuration = Math.ceil(duration);
 
