@@ -12,7 +12,7 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Header />
-          <Route exact path='/' component={Main} />
+          <Route path='/' component={Main} />
           <Route path='/statistics' component={Statistics} />
         </BrowserRouter>
       </Provider>
