@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Main } from './pages/Main';
 import { Statistics } from './pages/Statistics';
@@ -12,8 +12,9 @@ function App() {
       <Provider store={store}>
         <BrowserRouter>
           <Header />
-          <Route path='/' component={Main} />
+          <Route exact path='/' component={Main} />
           <Route path='/statistics' component={Statistics} />
+          <Redirect from="*" to="/" />
         </BrowserRouter>
       </Provider>
     </div>

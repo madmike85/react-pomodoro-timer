@@ -193,13 +193,13 @@ export function Statistics() {
                 <div className={styles.pomodoroContainer}>
                     {dayStatistics.workTime + dayStatistics.pauseTime === 0 && (
                         <div className={styles.emptyPomodoro}>
-                            <img src="./assets/images/tomato-big.png" alt="tomato-big" />
+                            <img src={process.env.PUBLIC_URL + '/assets/images/tomato-big.png'} alt="tomato-big" />
                         </div>
                     )}
                     {dayStatistics.workTime + dayStatistics.pauseTime > 0 && (
                         <>
                             <div className={styles.pomodoroCounter}>
-                                <img src="./assets/images/tomato-small.png" alt="tomato-small" />
+                                <img src={process.env.PUBLIC_URL + '/assets/images/tomato-small.png'} alt="tomato-small" />
                                 <p>x {dayStatistics.completedTasks}</p>
                             </div>
                             <div className={styles.pomodoroTitle}>
